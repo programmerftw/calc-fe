@@ -1,19 +1,21 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  darkMode: ["class"],
+import tailwindcssAnimate from "tailwindcss-animate";
+
+export default {
+  darkMode: ["class"], // Enables dark mode with the "class" strategy
   content: [
-    './pages/**/*.{ts,tsx}',
+    './pages/**/*.{ts,tsx}', // Scan for Tailwind classes in these folders
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
   ],
-  prefix: "",
+  prefix: "", // No prefix for class names
   theme: {
     container: {
-      center: true,
-      padding: "2rem",
+      center: true, // Centers the container by default
+      padding: "2rem", // Adds padding inside the container
       screens: {
-        "2xl": "1400px",
+        "2xl": "1400px", // Defines the max width for "2xl" screens
       },
     },
     extend: {
@@ -53,9 +55,9 @@ module.exports = {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "var(--radius)", // Large radius value
+        md: "calc(var(--radius) - 2px)", // Medium radius value
+        sm: "calc(var(--radius) - 4px)", // Small radius value
       },
       keyframes: {
         "accordion-down": {
@@ -73,5 +75,7 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-}
+  plugins: [
+    tailwindcssAnimate, // Correctly imported and used
+  ],
+};
